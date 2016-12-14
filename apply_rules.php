@@ -23,7 +23,6 @@ final class Apply_Rules
         Mage::app($this->_appCode, $this->_appType);
 
         try {
-            throw new Exception('yolo');
             $catalogPriceRule = Mage::getModel('catalogrule/rule');
             $catalogPriceRule->applyAll();
             Mage::log('Rules Applied', null, 'rules.log', true);
@@ -42,7 +41,7 @@ final class Apply_Rules
     {
         $fromEmail = Mage::getStoreConfig('trans_email/ident_general/email');
         $fromName = Mage::getStoreConfig('trans_email/ident_general/name');
-        $toEmail = "dpapanikolaou@digitalup.gr";
+        $toEmail = Mage::getStoreConfig('trans_email/ident_custom2/email');
         $subject = "Problem in rules";
 
         $mail = new Zend_Mail('UTF-8');
